@@ -2,9 +2,9 @@
   and (min-device-width: 1201px) 
 {
         .garfield {
-                width:50px; 
-                height:50px; 
-                background:url(images/sprite.png) 0 0px;
+                width:394px; 
+                height:124px; 
+                background:url(images/sprite.png) 3 1px;
         }
 } 
                 
@@ -12,9 +12,9 @@
   and (min-device-width: 1101px) 
     and (max-device-width: 1200px) {
         .garfield {
-                width:50px; 
-                height:50px; 
-                background:url(images/sprite.png) 0 0px;
+                width:192px; 
+                height:125px; 
+                background:url(images/sprite.png) 407 1px;
         }
 } 
    
@@ -22,9 +22,9 @@
   and (min-device-width: 1001px) 
     and (max-device-width: 1100px) {
         .garfield {
-                width:50px; 
-                height:50px; 
-                background:url(images/sprite.png) 0 0px;
+                width:2px; 
+                height:137px; 
+                background:url(images/sprite.png) 193 125px;
         }
 }
 
@@ -33,9 +33,9 @@
   and (min-device-width: 901px) 
     and (max-device-width: 1000px) {
         .garfield {
-                width:50px; 
-                height:50px; 
-                background:url(images/sprite.png) 0 0px;
+                width: 191px;
+                height: 122px;
+                background:url(images/sprite.png) 205 137px;
         }
 }
 
@@ -44,9 +44,9 @@
   and (min-device-width: 801px) 
     and (max-device-width: 900px) {
         .garfield {
-                width:50px; 
-                height:50px; 
-                background:url(images/sprite.png) 0 0px;
+                width:407px; 
+                height:135px; 
+                background:url(images/sprite.png) 192 127px;
         }
 } 
                 
@@ -54,9 +54,9 @@
   and (min-device-width: 701px) 
     and (max-device-width: 800px) {
         .garfield {
-                width:50px; 
-                height:50px; 
-                background:url(images/sprite.png) 0 0px;
+                width:192px; 
+                height:124px; 
+                background:url(images/sprite.png) 2 273px;
         }
 } 
    
@@ -64,9 +64,9 @@
   and (min-device-width: 601px) 
     and (max-device-width: 700px) {
         .garfield {
-                width:50px; 
-                height:50px; 
-                background:url(images/sprite.png) 0 0px;
+                width:193px; 
+                height:123px; 
+                background:url(images/sprite.png) 203 273px;
         }
 }
 
@@ -74,8 +74,8 @@
 @media screen  
     and (max-device-width: 600px) {
         .garfield {
-                width:50px; 
-                height:50px; 
-                background:url(images/sprite.png) 0 0px;
+                width:191px; 
+                height:126px; 
+                background:url(images/sprite.png) 407 271px;
         }
 } 
