@@ -1,10 +1,9 @@
-@media screen 
-  and (min-device-width: 1201px) 
+@media (min-device-width: 1201px) 
 {
         .garfield {
-                width:394px; 
-                height:124px; 
-                background:url(images/garfield.gif) 3 1px;
+                width:394px;
+                height:124px;
+                background:url(images/garfield.gif) 3px 1px;
         }
 } 
                 
@@ -14,7 +13,7 @@
         .garfield {
                 width:192px; 
                 height:125px; 
-                background:url(images/garfield.gif) 407 1px;
+                background:url(images/garfield.gif) 407px 1px;
         }
 } 
    
@@ -24,7 +23,7 @@
         .garfield {
                 width:2px; 
                 height:137px; 
-                background:url(images/garfield.gif) 193 125px;
+                background:url(images/garfield.gif) 193px 125px;
         }
 }
 
@@ -35,7 +34,7 @@
         .garfield {
                 width: 191px;
                 height: 122px;
-                background:url(images/garfield.gif) 205 137px;
+                background:url(images/garfield.gif) 205px 137px;
         }
 }
 
@@ -46,7 +45,7 @@
         .garfield {
                 width:407px; 
                 height:135px; 
-                background:url(images/garfield.gif) 192 127px;
+                background:url(images/garfield.gif) 192px 127px;
         }
 } 
                 
@@ -56,7 +55,7 @@
         .garfield {
                 width:192px; 
                 height:124px; 
-                background:url(images/garfield.gif) 2 273px;
+                background:url(images/garfield.gif) 2px 273px;
         }
 } 
    
@@ -66,7 +65,7 @@
         .garfield {
                 width:193px; 
                 height:123px; 
-                background:url(images/garfield.gif) 203 273px;
+                background:url(images/garfield.gif) 203px 273px;
         }
 }
 
@@ -76,6 +75,6 @@
         .garfield {
                 width:191px; 
                 height:126px; 
-                background:url(images/garfield.gif) 407 271px;
+                background:url(images/garfield.gif) 407px 271px;
         }
 } 
