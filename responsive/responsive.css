@@ -1,4 +1,5 @@
-@media (min-device-width: 1201px) 
+@media screen 
+   and (min-width: 1201px) 
 {
         .garfield {
                 width:394px;
@@ -8,8 +9,8 @@
 } 
                 
 @media screen 
-  and (min-device-width: 1101px) 
-    and (max-device-width: 1200px) {
+  and (min-width: 1101px) 
+    and (max-width: 1200px) {
         .garfield {
                 width:192px; 
                 height:125px; 
@@ -18,8 +19,8 @@
 } 
    
 @media screen 
-  and (min-device-width: 1001px) 
-    and (max-device-width: 1100px) {
+  and (min-width: 1001px) 
+    and (max-width: 1100px) {
         .garfield {
                 width:2px; 
                 height:137px; 
@@ -29,8 +30,8 @@
 
 
 @media screen 
-  and (min-device-width: 901px) 
-    and (max-device-width: 1000px) {
+  and (min-width: 901px) 
+    and (max-width: 1000px) {
         .garfield {
                 width: 191px;
                 height: 122px;
@@ -40,8 +41,8 @@
 
 
 @media screen 
-  and (min-device-width: 801px) 
-    and (max-device-width: 900px) {
+  and (min-width: 801px) 
+    and (max-width: 900px) {
         .garfield {
                 width:407px; 
                 height:135px; 
@@ -50,8 +51,8 @@
 } 
                 
 @media screen 
-  and (min-device-width: 701px) 
-    and (max-device-width: 800px) {
+  and (min-width: 701px) 
+    and (max-width: 800px) {
         .garfield {
                 width:192px; 
                 height:124px; 
@@ -60,8 +61,8 @@
 } 
    
 @media screen 
-  and (min-device-width: 601px) 
-    and (max-device-width: 700px) {
+  and (min-width: 601px) 
+    and (max-width: 700px) {
         .garfield {
                 width:193px; 
                 height:123px; 
@@ -71,7 +72,7 @@
 
 
 @media screen  
-    and (max-device-width: 600px) {
+    and (max-width: 600px) {
         .garfield {
                 width:191px; 
                 height:126px; 
