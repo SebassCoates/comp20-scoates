@@ -4,7 +4,7 @@
         .garfield {
                 width:400px;
                 height:130px;
-                background:url(images/garfield.gif) 1px -1px;
+                background:url(garfield.gif) 1px -1px;
         }
 } 
                 
@@ -14,7 +14,7 @@
         .garfield {
                 width:200px; 
                 height:125px; 
-                background:url(images/garfield.gif) -400px -1px;
+                background:url(garfield.gif) -400px -1px;
         }
 } 
    
@@ -24,7 +24,7 @@
         .garfield {
                 width: 193px;
                 height: 125px;
-                background:url(images/garfield.gif) -2px -137px;
+                background:url(garfield.gif) -2px -137px;
         }
 }
 
@@ -35,7 +35,7 @@
         .garfield {
                 width: 191px;
                 height: 122px;
-                background:url(images/garfield.gif) -192px -137px;
+                background:url(garfield.gif) -192px -137px;
         }
 }
 
@@ -46,7 +46,7 @@
         .garfield {
                 width:200px; 
                 height:135px; 
-                background:url(images/garfield.gif) -400px -127px;
+                background:url(garfield.gif) -400px -127px;
         }
 } 
                 
@@ -56,7 +56,7 @@
         .garfield {
                 width:192px; 
                 height:124px; 
-                background:url(images/garfield.gif) -2px -273px;
+                background:url(garfield.gif) -2px -273px;
         }
 } 
    
@@ -66,7 +66,7 @@
         .garfield {
                 width:193px; 
                 height:123px; 
-                background:url(images/garfield.gif) -203px -273px;
+                background:url(garfield.gif) -203px -273px;
         }
 }
 
@@ -76,6 +76,6 @@
         .garfield {
                 width:191px; 
                 height:126px; 
-                background:url(images/garfield.gif) -400px -273px;
+                background:url(garfield.gif) -400px -273px;
         }
 } 
