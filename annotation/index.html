@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>A Classic</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<h1 id="title">A Classic</h1>
+
+<video src="https://www.cs.tufts.edu/comp/20/classic.mp4" id="a_classic" controls></video>
+<div id="lyrics"></div>
+
+<script>
+        lyric_dict = {};
+        lyric_dict[0] = "Children have You ever met the Bogeyman before";
+
+        video = document.getElementById('a_classic');
+        lyrics = document.getElementById('lyrics');
+
+
+        video.ontimeupdate = function () {
+                console.log(video.currentTime);
+                content = lyric_dict[Math.floor(video.currentTime)]
+                if (content != undefined) {
+                        lyrics.textContent = content;
+                }
+        }
+
+</script>
+
+</body>
+</html> 
