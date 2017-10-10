@@ -62,7 +62,6 @@
         lyrics = document.getElementById('lyrics');
 
         video.ontimeupdate = function () {
-                console.log(video.currentTime);
                 content = lyric_dict[Math.floor(video.currentTime)]
                 if (content != undefined) {
                         lyrics.textContent = content;
