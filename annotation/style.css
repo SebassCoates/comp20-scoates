@@ -1,5 +1,18 @@
 html {
         font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,
         Helvetica Neue, Arial,sans-serif;
+
 }
 
+body {
+        margin-left: 30px;
+}
+
+h1 {
+        font-weight: 800;
+        font-size: 75px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+}
