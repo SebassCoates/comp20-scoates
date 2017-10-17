@@ -23,7 +23,13 @@ function addMarkers(map, coords) {
 
         r.onreadystatechange = function() {
                 if (r.readyState == 4 && r.status == 200) {
-                
+                        parsed = JSON.parse(r.responseText)
+                        for (landmark in parsed.landmarks) {
+                                console.log(landmark)
+                        }
+                        for (person in parsed.people) {
+                                console.log(person)
+                        }
                 } 
         }; 
         r.send(sendstring)
