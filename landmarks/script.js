@@ -8,7 +8,7 @@ function initMap(pos){
                 u_coords = pos.coords;
                 var coords ={lat: u_coords.latitude, lng: u_coords.longitude} 
                 var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 12,
+                        zoom: 16,
                         center: coords 
                 });
                 addMarkers(map, coords)
@@ -24,19 +24,22 @@ function addMarkers(map, coords) {
         r.onreadystatechange = function() {
                 if (r.readyState == 4 && r.status == 200) {
                         parsed = JSON.parse(r.responseText)
+                        console.log(parsed)
                         for (landmark in parsed.landmarks) {
-                                console.log(landmark)
+                                var marker = new google.maps.Marker({
+                                        position: {lat: parsed.landmarks[landmark].geometry.coordinates[0] , lng: parsed.landmarks[landmark].geometry.coordinates[1] },
+                                        map: map,
+                                });
+                                //console.log(marker)
                         }
                         for (person in parsed.people) {
-                                console.log(person)
+                                var marker = new google.maps.Marker({
+                                        position: {lat: parsed.people[person].lat , lng: parsed.people[person].lng },
+                                        map: map,
+                                });
+                                //console.log(marker)
                         }
                 } 
         }; 
         r.send(sendstring)
-        
-        var marker = new google.maps.Marker({
-            position: coords,
-            map: map,
-            title: 'Hello World!'
-        });
 }
