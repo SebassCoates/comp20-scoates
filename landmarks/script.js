@@ -21,6 +21,8 @@ function addMarkers(map, coords) {
         r.open("POST","https://defense-in-derpth.herokuapp.com/sendLocation" ,true)
         r.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 
+        closestSite = ["landmark", 2]
+
         var myMarker = new google.maps.Marker({
                 position: coords, 
                 animation: google.maps.Animation.DROP,
@@ -28,37 +30,90 @@ function addMarkers(map, coords) {
                 icon: ('mycon.jpg'),
         });
 
+        var info = new google.maps.InfoWindow({
+                content: "You have logged in at: " + "[" + coords.lat + ", " + coords.lng + "]"
+        });
+        info.open(map, myMarker);
+
         r.onreadystatechange = function() {
                 if (r.readyState == 4 && r.status == 200) {
                         parsed = JSON.parse(r.responseText)
-                        console.log(parsed)
                         for (landmark in parsed.landmarks) {
                                 curval = parsed.landmarks[landmark]
-                                lpos = {lat: (curval.geometry.coordinates[0]) , lng: (curval.geometry.coordinates[1]) }
-                                properties = curval.properties
-                                var landmarker = new google.maps.Marker({
-                                        position: lpos,
-                                        animation: google.maps.Animation.DROP,
-                                        map: map,
-                                        icon: ('location_icon.png'),
-                                });
-                                //console.log(landmarker)
+                                lpos = {lat: (curval.geometry.coordinates[1]) , lng: (curval.geometry.coordinates[0]) }
+                                distance = computeDistance(lpos, coords)
+                                if (distance < 1) {
+                                        properties = curval.properties
+
+                                        var info = new google.maps.InfoWindow({
+                                                content: properties.Details
+                                        });
+
+                                        var landmarker = new google.maps.Marker({
+                                                position: lpos,
+                                                animation: google.maps.Animation.DROP,
+                                                map: map,
+                                                content: info.content,
+                                                icon: ('location_icon.png'),
+                                        });
+
+                                        if (distance < closestSite[1]){
+                                                closestSite[0] = landmarker
+                                                closestSite[1] = distance
+                                        }
+
+                                        google.maps.event.addListener(landmarker, 'click', function () {
+                                                info.setContent(this.content);
+                                                info.open(map, this);
+                                        });
+                                }
                         }
+                        var closeInfo = new google.maps.InfoWindow({
+                                content: closestSite[0].content
+                        });
+                        google.maps.event.addListener(myMarker, 'click', function () {
+                                closeInfo.setContent(this.content);
+                                closeInfo.open(map, this);
+                        });
+
+                        console.log(closestSite[0])
+                        console.log(closestSite[1])
                         for (person in parsed.people) {
                                 curval = parsed.people[person]
                                 lpos = {lat: curval.lat, lng: curval.lng}
                                 if (lpos.lng == coords.lng && lpos.lat == coords.lat){
                                         continue //Don't self twice
                                 }
+                                distance = computeDistance(lpos, coords)
+
+                                var info = new google.maps.InfoWindow({
+                                        content: "login: " + curval.login + " |  Distance away: " + distance + " miles"
+                                });
                                 var personmarker = new google.maps.Marker({
                                         position: lpos, 
                                         animation: google.maps.Animation.DROP,
                                         map: map,
-                                        label: curval.login,
+                                        content: info.content,
                                         icon: ('classmate_icon.png'),
                                 });
+
+                                google.maps.event.addListener(personmarker, 'click', function () {
+                                        info.setContent(this.content);
+                                        info.open(map, this);
+                                });
+
                         }
                 } 
         }; 
         r.send(sendstring)
+}
+
+function computeDistance(lpos, coords) {
+        pos1 = new google.maps.LatLng(lpos.lat, lpos.lng)
+        pos2 = new google.maps.LatLng(coords.lat, coords.lng)
+        return toMiles(google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2))
+}
+
+function toMiles(meters) {
+        return 0.000621371 * meters
 }
