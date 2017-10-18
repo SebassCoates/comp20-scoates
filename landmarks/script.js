@@ -21,26 +21,40 @@ function addMarkers(map, coords) {
         r.open("POST","https://defense-in-derpth.herokuapp.com/sendLocation" ,true)
         r.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 
+        var myMarker = new google.maps.Marker({
+                position: coords, 
+                animation: google.maps.Animation.DROP,
+                map: map,
+                icon: ('mycon.jpg'),
+        });
+
         r.onreadystatechange = function() {
                 if (r.readyState == 4 && r.status == 200) {
                         parsed = JSON.parse(r.responseText)
                         console.log(parsed)
                         for (landmark in parsed.landmarks) {
-                                curval = parsed.landmarks[landmark];
-                                lpos = {lat: curval.geometry.coordinates[0] , lng: curval.geometry.coordinates[1] }
+                                curval = parsed.landmarks[landmark]
+                                lpos = {lat: (curval.geometry.coordinates[0]) , lng: (curval.geometry.coordinates[1]) }
                                 properties = curval.properties
                                 var landmarker = new google.maps.Marker({
                                         position: lpos,
-                                        map: map,
                                         animation: google.maps.Animation.DROP,
+                                        map: map,
                                         icon: ('location_icon.png'),
                                 });
+                                //console.log(landmarker)
                         }
                         for (person in parsed.people) {
+                                curval = parsed.people[person]
+                                lpos = {lat: curval.lat, lng: curval.lng}
+                                if (lpos.lng == coords.lng && lpos.lat == coords.lat){
+                                        continue //Don't self twice
+                                }
                                 var personmarker = new google.maps.Marker({
-                                        position: {lat: parsed.people[person].lat , lng: parsed.people[person].lng },
+                                        position: lpos, 
                                         animation: google.maps.Animation.DROP,
                                         map: map,
+                                        label: curval.login,
                                         icon: ('classmate_icon.png'),
                                 });
                         }
