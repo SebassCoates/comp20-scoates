@@ -60,6 +60,9 @@ function addMarkers(map, coords) {
                                         if (distance < closestSite[1]){
                                                 closestSite[0] = landmarker
                                                 closestSite[1] = distance
+                                                var closeInfo = new google.maps.InfoWindow({
+                                                         content: "Name of closest historical site: " + getName(closestSite[0].content) + " | Distance: " + distance
+                                                });
                                         }
 
                                         google.maps.event.addListener(landmarker, 'click', function () {
@@ -68,16 +71,11 @@ function addMarkers(map, coords) {
                                         });
                                 }
                         }
-                        var closeInfo = new google.maps.InfoWindow({
-                                content: closestSite[0].content
-                        });
+                        
                         google.maps.event.addListener(myMarker, 'click', function () {
-                                closeInfo.setContent(this.content);
                                 closeInfo.open(map, this);
                         });
 
-                        console.log(closestSite[0])
-                        console.log(closestSite[1])
                         for (person in parsed.people) {
                                 curval = parsed.people[person]
                                 lpos = {lat: curval.lat, lng: curval.lng}
@@ -116,4 +114,22 @@ function computeDistance(lpos, coords) {
 
 function toMiles(meters) {
         return 0.000621371 * meters
+}
+
+function getName(content) {
+        startIndex = 0
+        findingStart = true
+
+        for (i = 0; i < content.length; i++) {
+                if (findingStart) {
+                        if (content[i] == '/') {
+                                startIndex = i + 3
+                                findingStart = false
+                        }
+                } else {
+                        if (content[i] == '<') {
+                                return content.substring(startIndex, i)
+                        }
+                }
+        }
 }
