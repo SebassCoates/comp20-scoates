@@ -21,7 +21,7 @@ function addMarkers(map, coords) {
         r.open("POST","https://defense-in-derpth.herokuapp.com/sendLocation" ,true)
         r.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 
-        closestSite = ["landmark", 2]
+        closestSite = ["landmark", 2, coords]
 
         var myMarker = new google.maps.Marker({
                 position: coords, 
@@ -40,7 +40,7 @@ function addMarkers(map, coords) {
                         parsed = JSON.parse(r.responseText)
                         for (landmark in parsed.landmarks) {
                                 curval = parsed.landmarks[landmark]
-                                var lpos = {lat: (curval.geometry.coordinates[1]) , lng: (curval.geometry.coordinates[0]) }
+                                lpos = {lat: (curval.geometry.coordinates[1]) , lng: (curval.geometry.coordinates[0]) }
                                 distance = computeDistance(lpos, coords)
                                 if (distance < 1) {
                                         properties = curval.properties
@@ -60,8 +60,9 @@ function addMarkers(map, coords) {
                                         if (distance < closestSite[1]){
                                                 closestSite[0] = landmarker
                                                 closestSite[1] = distance
+                                                closestSite[2] = lpos
                                                 var closeInfo = new google.maps.InfoWindow({
-                                                         content: "Name of closest historical site: " + getName(closestSite[0].content) + " | Distance: " + distance
+                                                         content: "Name of closest historical site: " + getName(closestSite[0].content) + " | Distance: " + distance + " miles"
                                                 });
                                         }
 
@@ -76,15 +77,15 @@ function addMarkers(map, coords) {
                                 closeInfo.open(map, this);
                         });
 
-                        var flightPath = new google.maps.Polyline({
-                                path: lpos,
+                        var shortestPath = new google.maps.Polyline({
+                                path: [coords, closestSite[2]],
                                 geodesic: true,
-                                strokeColor: '#FF0000',
+                                strokeColor: '#000000',
                                 strokeOpacity: 1.0,
-                                strokeWeight: 2
+                                strokeWeight: 10
                         });
 
-        flightPath.setMap(map);
+                        shortestPath.setMap(map);
 
                         for (person in parsed.people) {
                                 curval = parsed.people[person]
