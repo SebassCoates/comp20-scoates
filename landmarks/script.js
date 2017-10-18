@@ -26,15 +26,21 @@ function addMarkers(map, coords) {
                         parsed = JSON.parse(r.responseText)
                         console.log(parsed)
                         for (landmark in parsed.landmarks) {
+                                curval = parsed.landmarks[landmark];
+                                lpos = {lat: curval.geometry.coordinates[0] , lng: curval.geometry.coordinates[1] }
+                                properties = curval.properties
+                                console.log(properties)
                                 var marker = new google.maps.Marker({
-                                        position: {lat: parsed.landmarks[landmark].geometry.coordinates[0] , lng: parsed.landmarks[landmark].geometry.coordinates[1] },
+                                        position: lpos,
                                         map: map,
+                                        animation: google.maps.Animation.DROP,
                                 });
                                 //console.log(marker)
                         }
                         for (person in parsed.people) {
                                 var marker = new google.maps.Marker({
                                         position: {lat: parsed.people[person].lat , lng: parsed.people[person].lng },
+                                        animation: google.maps.Animation.DROP,
                                         map: map,
                                 });
                                 //console.log(marker)
