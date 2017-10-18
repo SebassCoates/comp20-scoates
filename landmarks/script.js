@@ -40,7 +40,7 @@ function addMarkers(map, coords) {
                         parsed = JSON.parse(r.responseText)
                         for (landmark in parsed.landmarks) {
                                 curval = parsed.landmarks[landmark]
-                                lpos = {lat: (curval.geometry.coordinates[1]) , lng: (curval.geometry.coordinates[0]) }
+                                var lpos = {lat: (curval.geometry.coordinates[1]) , lng: (curval.geometry.coordinates[0]) }
                                 distance = computeDistance(lpos, coords)
                                 if (distance < 1) {
                                         properties = curval.properties
@@ -75,6 +75,16 @@ function addMarkers(map, coords) {
                         google.maps.event.addListener(myMarker, 'click', function () {
                                 closeInfo.open(map, this);
                         });
+
+                        var flightPath = new google.maps.Polyline({
+                                path: lpos,
+                                geodesic: true,
+                                strokeColor: '#FF0000',
+                                strokeOpacity: 1.0,
+                                strokeWeight: 2
+                        });
+
+        flightPath.setMap(map);
 
                         for (person in parsed.people) {
                                 curval = parsed.people[person]
