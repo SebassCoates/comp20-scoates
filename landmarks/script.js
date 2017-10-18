@@ -29,21 +29,20 @@ function addMarkers(map, coords) {
                                 curval = parsed.landmarks[landmark];
                                 lpos = {lat: curval.geometry.coordinates[0] , lng: curval.geometry.coordinates[1] }
                                 properties = curval.properties
-                                console.log(properties)
-                                var marker = new google.maps.Marker({
+                                var landmarker = new google.maps.Marker({
                                         position: lpos,
                                         map: map,
                                         animation: google.maps.Animation.DROP,
+                                        icon: ('location_icon.png'),
                                 });
-                                //console.log(marker)
                         }
                         for (person in parsed.people) {
-                                var marker = new google.maps.Marker({
+                                var personmarker = new google.maps.Marker({
                                         position: {lat: parsed.people[person].lat , lng: parsed.people[person].lng },
                                         animation: google.maps.Animation.DROP,
                                         map: map,
+                                        icon: ('classmate_icon.png'),
                                 });
-                                //console.log(marker)
                         }
                 } 
         }; 
