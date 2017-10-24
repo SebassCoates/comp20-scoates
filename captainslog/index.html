@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $( document ).ready(function() {
-            for (key in localStorage){
-                $('div').prepend(localStorage[key])
+            for (k in localStorage){
+                $('div').prepend(localStorage[k])
             }
         });
 
@@ -21,7 +21,12 @@
             var start = Date.now()
             var d = new Date(start)
             date = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear()
-            date += " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " - "
+            date += " " + d.getHours() + ":" + d.getMinutes() + ":" 
+            seconds = d.getSeconds()
+            if (seconds < 10) {
+                seconds = 0 + seconds
+            }
+            date += seconds + " - "
             var entry = date + $('input').val() + '<br>'
             $('div').prepend(entry)
 
