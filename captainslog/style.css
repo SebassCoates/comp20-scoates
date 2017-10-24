@@ -1,0 +1,18 @@
+html {
+        text-align: justify;
+        background-color: rgb(0, 0, 0)
+}
+
+div {
+        text-align: justify;
+        color: rgb(73, 251, 53);
+}
+
+h1 {
+        color: rgb(255,105,180);
+        font-size: 60px;
+}
+
+h3 {
+        color: rgb(73, 251, 53);
+}
