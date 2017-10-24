@@ -16,9 +16,8 @@
             var d = new Date(start)
             date = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear()
             date += " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " - "
-            $('div').append(date)
-            $('div').append($('input').val())
-            $('div').append('<br>')
+            var entry = date + $('input').val() + '<br>'
+            $('div').prepend(entry)
             $('#msg').val("")
         }
         });
