@@ -12,7 +12,14 @@
 
         var keycode = event.keyCode
         if(keycode == '13'){ //enter key pressed
+            var start = Date.now()
+            var d = new Date(start)
+            date = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear()
+            date += " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " - "
+            $('div').append(date)
             $('div').append($('input').val())
+            $('div').append('<br>')
+            $('#msg').val("")
         }
         });
     </script>
