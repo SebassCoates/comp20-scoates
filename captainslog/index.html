@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        // Your work will be done here...
+        $(document).keypress(function(event){
+
+        var keycode = event.keyCode
+        if(keycode == '13'){ //enter key pressed
+            $('div').append('<p>Hello</p>')
+            console.log("Submitted")
+        }
+        });
+    
     </script>
 </head>
 
