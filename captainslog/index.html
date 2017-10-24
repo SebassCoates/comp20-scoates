@@ -12,11 +12,9 @@
 
         var keycode = event.keyCode
         if(keycode == '13'){ //enter key pressed
-            $('div').append('<p>Hello</p>')
-            console.log("Submitted")
+            $('div').append($('input').val())
         }
         });
-    
     </script>
 </head>
 
