@@ -24,7 +24,7 @@
             date += " " + d.getHours() + ":" + d.getMinutes() + ":" 
             seconds = d.getSeconds()
             if (seconds < 10) {
-                seconds = 0 + seconds
+                seconds = "0" + seconds
             }
             date += seconds + " - "
             var entry = date + $('input').val() + '<br>'
