@@ -26,7 +26,7 @@
             if (seconds < 10) {
                 seconds = "0" + seconds
             }
-            date += seconds + " - "
+            date += seconds + " UTC-" + d.getTimezoneOffset()/60  + " - "
             var entry = date + $('input').val() + '<br>'
             $('div').prepend(entry)
 
