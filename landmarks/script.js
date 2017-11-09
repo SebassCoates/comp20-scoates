@@ -38,7 +38,6 @@ function addMarkers(map, coords) {
         r.onreadystatechange = function() {
                 if (r.readyState == 4 && r.status == 200) {
                         parsed = JSON.parse(r.responseText)
-                        console.log(parsed)
                         for (landmark in parsed.landmarks) {
                                 curval = parsed.landmarks[landmark]
                                 lpos = {lat: (curval.geometry.coordinates[1]) , lng: (curval.geometry.coordinates[0]) }
