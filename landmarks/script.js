@@ -18,7 +18,7 @@ function initMap(pos){
 function addMarkers(map, coords) {
         var r = new XMLHttpRequest()
         sendstring = "login=CCqBXEWf" + "&lat=" + coords.lat + "&lng=" + coords.lng
-        r.open("POST","https://defense-in-derpth.herokuapp.com/sendLocation" ,true)
+        r.open("POST","https://frozen-ridge-91416.herokuapp.com/sendLocation" ,true)
         r.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 
         closestSite = ["landmark", 2, coords]
@@ -38,13 +38,13 @@ function addMarkers(map, coords) {
         r.onreadystatechange = function() {
                 if (r.readyState == 4 && r.status == 200) {
                         parsed = JSON.parse(r.responseText)
+                        console.log(parsed)
                         for (landmark in parsed.landmarks) {
                                 curval = parsed.landmarks[landmark]
                                 lpos = {lat: (curval.geometry.coordinates[1]) , lng: (curval.geometry.coordinates[0]) }
                                 distance = computeDistance(lpos, coords)
                                 if (distance < 1) {
                                         properties = curval.properties
-
                                         var info = new google.maps.InfoWindow({
                                                 content: properties.Details
                                         });
@@ -86,7 +86,7 @@ function addMarkers(map, coords) {
                         });
 
                         shortestPath.setMap(map);
-
+                        
                         for (person in parsed.people) {
                                 curval = parsed.people[person]
                                 lpos = {lat: curval.lat, lng: curval.lng}
