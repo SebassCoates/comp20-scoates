@@ -1,9 +1,7 @@
 # Lab 8 - Finalizing my Learning Portfoloio  
 
-1. What is the purpose of this Git repository? (duh!)
-
-        The purpose of this repository was to build and maintain a portfolio of 
- 
+1. What is the purpose of this Git repository? (duh!)  
+        The purpose of this repository was to build and maintain a portfolio of  
 all the topics and technologies I've learned in this course. It serves as a way  
 of seeing how much I've learned. It also provides references that will be useful  
 if I need to remember something (jquery, mongodb, etc).
