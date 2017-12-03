@@ -13,7 +13,7 @@ to understand how servers work. It was also my favorite assignment because it
 presented many difficult challenges, like using a database, and I learned a lot 
 by struggling through the hard work.
 
-3. How much do you think you have grown from day 1 of this course to now?
+3. How much do you think you have grown from day 1 of this course to now?  
         On day 1, I felt like a could make a basic website using HTML and css. 
 By now, I feel like I could create a full web app - both client side and server 
 side. I feel comfortable using databases, and I have a much better sense about 
@@ -22,7 +22,7 @@ grasp of how the web really works, which I did not expect to get out of course
 (I thought we would simply learn how to build simple websites).
 
 4. What was the most important thing you learned in this course? Cite two 
-examples as evidence.
+examples as evidence.  
         The most important thing I learned in this course is developing websites
 with security in mind. The big breakthrough came from developing a custom 
 sign-up/login system for my group's semester project. I learned about how to 
@@ -33,7 +33,7 @@ really highlighted the importance of building websites with security in mind
 during all stages of design and implementation.
 
 5. Now that you've finished the course, what topic would you like to delve 
-deeper into?
+deeper into?  
         Now that I have a much better understanding of how the web works, I feel
 like my biggest gap in understanding is how to make the web more secure. So, 
 naturally, the next topic I'd like to delve into is computer security. 
