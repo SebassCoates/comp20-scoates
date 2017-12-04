@@ -43,22 +43,22 @@
                 </ul>
                 Issue 2: XSC https://www.glacial-reef-86301.herokuapp.com
                 <ul>
-                        <li>Location: </li>
-                        <li>Severity: </li>
-                        <li>Description: </li>
+                        <li>Location: https://www.glacial-reef-86301.herokuapp.com</li>
+                        <li>Severity: High - website, on load, can be redirected to any website. Malicious websites can be easily loaded - user information can be compromised</li>
+                        <li>Description: Posting javascript code to /sendLocation allows any kind of meddling with the homepage. In this case, redirection to another website on page load.</li>
                         <li>Proof: </li>
                         <video width="320" height="240" controls>
   <source src="reddit_redir_small.mov"/></video>
-                        <li>Resolution: </li>
+                        <li>Resolution: When server receives information from post request, use a regular expression to remove all non-alphanumeric characters to prevent javascript code from being saved in database.</li>
                 </ul>
                 Issue 1: XSC Landmarks Site
                 <ul>
-                        <li>Location: </li>
-                        <li>Severity: </li>
-                        <li>Description: </li>
+                        <li>Location: Landmarks website homepage</li>
+                        <li>Severity: Low - user is not redirected to another website, user privacy is not directly threatened, hacker must use lat/lng coords very close to user of Landmarks site (without knowing the users' lat/lng coords ahead of time</li>
+                        <li>Description: Posting information to /sendLocation with similar lat/lng coordinates to user of Landmarks allows any kind of message to be embedded in the login information. In this case, an advertisement for Oxyclean</li>
                         <li>Proof: </li>
                         <img src="oxyclean.png" alt="Embedded Oxyclean Ad">
-                        <li>Resolution: </li>
+                        <li>Resolution: Same as Issue 2: verify user login information so that only verified users can be added to database. This prevents messages from being encoded in the login information. The login given with the post request can be compared against a secure database of valid usernames.</li>
                 </ul>
         </p>
 
