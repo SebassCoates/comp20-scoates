@@ -64,7 +64,8 @@
 
         <h1>Conclusion</h1>
         <p>  
-        
+                Simple input validation can go a long way. Cross-site scripting allows for several exploits ranging from low to high severity. Simly using a regular expression to validate input, or using a database of verified logins will prevent this type of exploit. 
+                Handling overwhelming post requests is a bigger challenge, but one that needs to be addressed, as it directly threatens the uptime of the server. In addition to verifying logins as recommended above, logins should be throttled to a few post requests per minute to prevent one login from overwhelming the database/server with a multitude of pull requets every second.
         </p>
 
         <h1>References</h1>
