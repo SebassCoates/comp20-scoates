@@ -31,21 +31,21 @@
         <p>  
                 Issue 1: DDoS vulnerability
                 <ul>
-                        <li>Location: </li>
-                        <li>Severity: </li>
-                        <li>Description: </li>
+                        <li>Location: https://www.glacial-reef-86301.herokuapp.com/sendLocation</li>
+                        <li>Severity: High - website is taken offline until MongoDB restarted</li>
+                        <li>Description: Running a script to repeatedly post garbage information to /sendLocation causes the server to stop responding, and eventually, the website to crash.</li>
                         <li>Proof: </br>
                         <video width="320" height="240" controls>
   <source src="ddos_small.mov"/></video>
                         <img src="sitecrash.png" alt="Crashed Website Page">
                         </li>
-                        <li>Resolution: </li>
+                        <li>Resolution: Validate logins to ensure garbage usernames cannot be added. For each username, monitor usage to prevent overwhelming number of requests. Ex: only process 3 requests per minute for each login</li>
                 </ul>
                 Issue 2: XSC https://www.glacial-reef-86301.herokuapp.com
                 <ul>
-                        <li>Methodology: </li>
-                        <li>Abstract of Findings: </li>
-                        <li>Issues Found: </li>
+                        <li>Location: </li>
+                        <li>Severity: </li>
+                        <li>Description: </li>
                         <li>Proof: </li>
                         <video width="320" height="240" controls>
   <source src="reddit_redir_small.mov"/></video>
@@ -53,9 +53,9 @@
                 </ul>
                 Issue 1: XSC Landmarks Site
                 <ul>
-                        <li>Methodology: </li>
-                        <li>Abstract of Findings: </li>
-                        <li>Issues Found: </li>
+                        <li>Location: </li>
+                        <li>Severity: </li>
+                        <li>Description: </li>
                         <li>Proof: </li>
                         <img src="oxyclean.png" alt="Embedded Oxyclean Ad">
                         <li>Resolution: </li>
