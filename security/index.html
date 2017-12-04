@@ -8,15 +8,23 @@
 
 <body>
         <h1>Introduction</h1>
-        <p>  
+        <p>     The product is a website that offers location checkin. Users
+                can check in at their geolocation, and receive information 
+                about other users and nearby historical landmarks. I was
+                hired to find vulnerabilities in this product.
         </p>
         
         <h1>Methodology</h1>
-        <p>  
+        <p>     My methodology was to post information to the login page
+                (/sendLocation) in order to see what kind of malicious information I can get into the database. I also attempted to see howmuch information I could post (in an attempt to overwhelm the server or website). I used curl to pen test
+                this page as well as shell scripting to run many tests
+                simultaneously to simulate a DDoS attack of sorts.
         </p>
         
         <h1>Abstract of Findings</h1>
         <p>  
+                DDoS Attack Vulnerability: The server does not handle multiple requests effectively. A hacker who simply sends information to the server often is able to crash the site within a minute.
+                XXS Vulnerability: By sending specific information to the login page, a hacker is able to cause the homepage and the /checkins.json page to redirect to whatever website they want.
         </p>
 
         <h1>Issues Found</h1>
