@@ -16,7 +16,7 @@
         
         <h1>Methodology</h1>
         <p>     My methodology was to post information to the login page
-                (/sendLocation) in order to see what kind of malicious information I can get into the database. I also attempted to see howmuch information I could post (in an attempt to overwhelm the server or website). I used curl to pen test
+                (/sendLocation) in order to see what kind of malicious information I can get into the database. I also attempted to see how much information I could post (in an attempt to overwhelm the server or website). I used curl to pen test
                 this page as well as shell scripting to run many tests
                 simultaneously to simulate a DDoS attack of sorts.
         </p>
@@ -54,17 +54,9 @@
                 Issue 1: XSS Landmarks Site
                 <ul>
                         <li>Location: Landmarks website homepage</li>
-                        <li>Severity: Low - user is not redirected to another website, user privacy is not directly threatened, hacker must use lat/lng coords very close to user of Landmarks site (without knowing the users' lat/lng coords ahead of time</li>
-                        <li>Description: Posting information to /sendLocation with similar lat/lng coordinates to user of Landmarks allows any kind of message to be embedded in the login information. In this case, an advertisement for Oxyclean</li>
-                        <li>Proof: </li>
-                        <img src="oxyclean.png" alt="Embedded Oxyclean Ad">
-                        <li>Resolution: Same as Issue 2: verify user login information so that only verified users can be added to database. This prevents messages from being encoded in the login information. The login given with the post request can be compared against a secure database of valid usernames.</li>
-                </ul>
-        </p>
-
-        <h1>Conclusion</h1>
+Conclusion</h1>
         <p>  
-                Simple input validation can go a long way. Cross-site scripting allows for several exploits ranging from low to high severity. Simly using a regular expression to validate input, or using a database of verified logins will prevent this type of exploit. 
+                Simple input validation can go a long way. Cross-site scripting allows for several exploits ranging from low to high severity. Simply using a regular expression to validate input, or using a database of verified logins will prevent this type of exploit. 
                 Handling overwhelming post requests is a bigger challenge, but one that needs to be addressed, as it directly threatens the uptime of the server. In addition to verifying logins as recommended above, logins should be throttled to a few post requests per minute to prevent one login from overwhelming the database/server with a multitude of pull requets every second.
         </p>
 
