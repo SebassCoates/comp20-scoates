@@ -51,10 +51,18 @@
   <source src="reddit_redir_small.mov"/></video>
                         <li>Resolution: When server receives information from post request, use a regular expression to remove all non-alphanumeric characters to prevent javascript code from being saved in database.</li>
                 </ul>
-                Issue 1: XSS Landmarks Site
+                Issue 3: Embedded Advertising in Landmarks Site
                 <ul>
                         <li>Location: Landmarks website homepage</li>
-Conclusion</h1>
+                        <li>Severity: Low - user is not redirected to another website, user privacy is not directly threatened, hacker must use lat/lng coords very close to user of Landmarks site (without knowing the users' lat/lng coords ahead of time</li>
+                        <li>Description: Posting information to /sendLocation with similar lat/lng coordinates to user of Landmarks allows any kind of message to be embedded in the login information. In this case, an advertisement for Oxyclean</li>
+                        <li>Proof: </li>
+                        <img src="oxyclean.png" alt="Embedded Oxyclean Ad">
+                        <li>Resolution: Same as Issue 2: verify user login information so that only verified users can be added to database. This prevents messages from being encoded in the login information. The login given with the post request can be compared against a secure database of valid usernames.</li>
+                </ul>
+        </p>
+
+        <h1>Conclusion</h1>
         <p>  
                 Simple input validation can go a long way. Cross-site scripting allows for several exploits ranging from low to high severity. Simply using a regular expression to validate input, or using a database of verified logins will prevent this type of exploit. 
                 Handling overwhelming post requests is a bigger challenge, but one that needs to be addressed, as it directly threatens the uptime of the server. In addition to verifying logins as recommended above, logins should be throttled to a few post requests per minute to prevent one login from overwhelming the database/server with a multitude of pull requets every second.
